@@ -11,13 +11,17 @@
         <div id="home-view" class="home-view">
             <h1 class="app-title">SoundMind</h1>
             <div id="entry-list" class="entry-list">
-                <?php foreach ($entries as $entry): ?>
-                    <div class="entry-item <?= $entry['sentiment'] === 'positive' ? 'positive' : 'negative' ?>">
-                        <h2 class="entry-title"><?= htmlspecialchars($entry['title']) ?></h2>
-                        <p class="entry-date"><?= htmlspecialchars($entry['date']) ?></p>
-                        <p class="entry-summary"><?= htmlspecialchars($entry['briefSummary']) ?></p>
-                    </div>
-                <?php endforeach; ?>
+                <?php if (isset($entries) && is_array($entries)): ?>
+                    <?php foreach ($entries as $entry): ?>
+                        <div class="entry-item <?= $entry['sentiment'] === 'positive' ? 'positive' : 'negative' ?>">
+                            <h2 class="entry-title"><?= htmlspecialchars($entry['title']) ?></h2>
+                            <p class="entry-date"><?= htmlspecialchars($entry['date']) ?></p>
+                            <p class="entry-summary"><?= htmlspecialchars($entry['briefSummary']) ?></p>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No entries found.</p>
+                <?php endif; ?>
             </div>
         </div>
         <nav id="nav-dots" class="nav-dots">

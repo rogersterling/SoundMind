@@ -2,6 +2,11 @@
 
 namespace App;
 
+require_once __DIR__ . '/controllers/HomeController.php';
+require_once __DIR__ . '/controllers/InsightsController.php';
+require_once __DIR__ . '/controllers/SettingsController.php';
+require_once __DIR__ . '/controllers/DetailController.php';
+
 use App\Controllers\HomeController;
 use App\Controllers\InsightsController;
 use App\Controllers\SettingsController;
@@ -21,6 +26,12 @@ class Router
             case '/settings':
                 $controller = new SettingsController();
                 return $controller->index();
+            case '/settings/save-api-key':
+                $controller = new SettingsController();
+                return $controller->saveApiKey();
+            case '/settings/delete-data':
+                $controller = new SettingsController();
+                return $controller->deleteData();
             default:
                 if (preg_match('/^\/entry\/(\d+)$/', $uri, $matches)) {
                     $controller = new DetailController();

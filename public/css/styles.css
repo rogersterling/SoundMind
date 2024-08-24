@@ -21,10 +21,14 @@ body {
     border-radius: 0.5rem;
     overflow: hidden;
     padding-bottom: 7rem; /* Make room for the fixed bottom bar */
+    position: relative;
+    height: 100vh;
 }
 
 .main-content {
     padding: 1rem;
+    height: calc(100% - 7rem); /* Subtract the height of nav dots and record/upload bar */
+    overflow-y: auto;
 }
 
 /* Navigation */
@@ -109,6 +113,7 @@ body {
     margin-bottom: 1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     transition: box-shadow 0.2s;
+    border-left: 4px solid transparent;
 }
 
 .entry-item:hover {
@@ -116,11 +121,11 @@ body {
 }
 
 .entry-item.positive {
-    border-left: 4px solid #4CAF50;
+    border-left-color: #4CAF50;
 }
 
 .entry-item.negative {
-    border-left: 4px solid #F44336;
+    border-left-color: #F44336;
 }
 
 .entry-title {
@@ -140,6 +145,31 @@ body {
 }
 
 /* Detail view styles */
+#detail-view {
+    padding: 20px;
+}
+
+.entry-details {
+    margin-bottom: 20px;
+}
+
+.entry-details p {
+    margin-bottom: 10px;
+}
+
+#back-to-home {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#back-to-home:hover {
+    background-color: #0056b3;
+}
+
 .back-link {
     margin-bottom: 1rem;
 }
@@ -158,4 +188,86 @@ body {
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Insights view styles */
+#insights-view {
+    padding: 20px;
+}
+
+#mood-chart {
+    height: 300px;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+    color: #666;
+    border-radius: 0.5rem;
+}
+
+/* Add these styles to your existing CSS */
+.view {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Settings view styles */
+#settings-view {
+    padding: 1rem;
+}
+
+#api-key-form {
+    margin-bottom: 1rem;
+}
+
+#api-key-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#api-key-form input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#api-key-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+#api-key-form button:hover {
+    background-color: #45a049;
+}
+
+.danger-zone {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 1px solid #ff0000;
+    border-radius: 0.5rem;
+}
+
+.danger-zone h2 {
+    color: #ff0000;
+    margin-bottom: 1rem;
+}
+
+.danger {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.danger:hover {
+    background-color: #cc0000;
 }

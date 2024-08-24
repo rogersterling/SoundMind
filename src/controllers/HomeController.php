@@ -1,12 +1,24 @@
 <?php
 
-require_once __DIR__ . '/Controller.php';
+namespace App\Controllers;
 
-class HomeController extends Controller
+class HomeController
 {
     public function index()
     {
-        $entries = [
+        // Fetch entries (this is a placeholder, replace with actual data fetching logic later)
+        $entries = $this->getDummyEntries();
+
+        $currentPage = 'home';
+
+        // Pass $entries to the view
+        include __DIR__ . '/../views/layout.php';
+    }
+
+    private function getDummyEntries()
+    {
+        // This is temporary dummy data. Replace with database queries later.
+        return [
             [
                 'id' => 1,
                 'title' => 'Feeling excited and free',
@@ -29,7 +41,5 @@ class HomeController extends Controller
                 'briefSummary' => 'Met some great people at the community event. Feeling grateful.'
             ],
         ];
-
-        include __DIR__ . '/../views/home.php';
     }
 }

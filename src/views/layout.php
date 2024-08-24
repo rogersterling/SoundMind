@@ -8,17 +8,23 @@
 </head>
 <body>
     <div id="app" class="app-container">
-        <?php if ($currentPage !== 'detail'): ?>
         <nav class="nav-dots">
-            <a href="/" class="nav-dot <?= $currentPage === 'home' ? 'active' : '' ?>"></a>
-            <a href="/insights" class="nav-dot <?= $currentPage === 'insights' ? 'active' : '' ?>"></a>
-            <a href="/settings" class="nav-dot <?= $currentPage === 'settings' ? 'active' : '' ?>"></a>
+            <span class="nav-dot <?= $currentPage === 'home' ? 'active' : '' ?>" data-view="home"></span>
+            <span class="nav-dot <?= $currentPage === 'insights' ? 'active' : '' ?>" data-view="insights"></span>
+            <span class="nav-dot <?= $currentPage === 'settings' ? 'active' : '' ?>" data-view="settings"></span>
         </nav>
-        <?php endif; ?>
 
-        <main class="main-content">
-            <?= $content ?>
-        </main>
+        <div id="home-view" class="view <?= $currentPage !== 'home' ? 'hidden' : '' ?>">
+            <?php include __DIR__ . '/home.php'; ?>
+        </div>
+
+        <div id="insights-view" class="view <?= $currentPage !== 'insights' ? 'hidden' : '' ?>">
+            <?php include __DIR__ . '/insights.php'; ?>
+        </div>
+
+        <div id="settings-view" class="view <?= $currentPage !== 'settings' ? 'hidden' : '' ?>">
+            <?php include __DIR__ . '/settings.php'; ?>
+        </div>
 
         <div id="record-upload-bar" class="record-upload-bar">
             <button id="record-btn">Record</button>

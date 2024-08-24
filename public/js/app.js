@@ -2,132 +2,59 @@
 
 // DOM Elements
 const app = document.getElementById('app');
-const navDots = document.getElementById('nav-dots');
+const navDots = document.querySelectorAll('.nav-dot');
 const recordUploadBar = document.getElementById('record-upload-bar');
 
 // Views
-const views = ['home', 'detail', 'insights', 'settings'];
+const views = ['home', 'insights', 'settings'];
 let currentView = 'home';
 
 // Navigation
 function navigateTo(view) {
     if (!views.includes(view)) return;
-    currentView = view;
-    updateView();
-    updateNavDots();
-}
-
-function updateView() {
+    
     // Hide all views
     views.forEach(v => {
         const viewElement = document.getElementById(`${v}-view`);
-        if (viewElement) viewElement.style.display = 'none';
+        if (viewElement) viewElement.classList.add('hidden');
     });
 
-    // Show current view
-    const currentViewElement = document.getElementById(`${currentView}-view`);
-    if (currentViewElement) currentViewElement.style.display = 'block';
+    // Show the selected view
+    const newViewElement = document.getElementById(`${view}-view`);
+    if (newViewElement) newViewElement.classList.remove('hidden');
 
-    // Load view content
-    loadViewContent(currentView);
+    currentView = view;
+    updateActiveNavDot(view);
 }
 
-function updateNavDots() {
-    navDots.innerHTML = '';
-    views.forEach(view => {
-        const dot = document.createElement('span');
-        dot.classList.add('nav-dot');
-        if (view === currentView) dot.classList.add('active');
-        dot.addEventListener('click', () => navigateTo(view));
-        navDots.appendChild(dot);
-    });
-}
-
-// AJAX Functions
-async function loadViewContent(view) {
-    try {
-        const response = await fetch(`/api/${view}`);
-        if (!response.ok) throw new Error('Network response was not ok');
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.indexOf("application/json") !== -1) {
-            const data = await response.json();
-            updateViewWithData(view, data);
-        } else {
-            console.log("API not ready, received non-JSON response");
-            // Optionally, load some dummy data or show a "Coming Soon" message
+function updateActiveNavDot(view) {
+    navDots.forEach(dot => {
+        dot.classList.remove('active');
+        if (dot.dataset.view === view) {
+            dot.classList.add('active');
         }
-    } catch (error) {
-        console.error('Error loading view content:', error);
-        // Optionally, show an error message to the user
-    }
-}
-
-function updateViewWithData(view, data) {
-    const viewElement = document.getElementById(`${view}-view`);
-    if (!viewElement) return;
-
-    switch (view) {
-        case 'home':
-            updateHomeView(viewElement, data);
-            break;
-        case 'detail':
-            updateDetailView(viewElement, data);
-            break;
-        case 'insights':
-            updateInsightsView(viewElement, data);
-            break;
-        case 'settings':
-            updateSettingsView(viewElement, data);
-            break;
-    }
-}
-
-// View Update Functions
-function updateHomeView(element, data) {
-    // Implement home view update logic
-}
-
-function updateDetailView(element, data) {
-    // Implement detail view update logic
-}
-
-function updateInsightsView(element, data) {
-    // Implement insights view update logic
-}
-
-function updateSettingsView(element, data) {
-    // Implement settings view update logic
-}
-
-// Record/Upload Bar
-function initRecordUploadBar() {
-    // Implement record/upload bar initialization
+    });
 }
 
 // Initialize App
 function initApp() {
-    updateNavDots();
-    updateView();
-    initRecordUploadBar();
+    setupEventListeners();
+    setupSettingsEventListeners();
+    // Show the initial view (home)
+    navigateTo('home');
 }
 
 // Event Listeners
-document.addEventListener('DOMContentLoaded', initApp);
-
-// Expose necessary functions to global scope
-window.navigateTo = navigateTo;
-
-document.addEventListener('DOMContentLoaded', function() {
-    const navDots = document.querySelectorAll('.nav-dot');
-    const recordBtn = document.getElementById('record-btn');
-    const uploadBtn = document.getElementById('upload-btn');
-
+function setupEventListeners() {
     navDots.forEach(dot => {
         dot.addEventListener('click', function() {
-            console.log(`Navigating to ${this.dataset.view} view`);
-            // Implement view navigation here
+            const view = this.dataset.view;
+            navigateTo(view);
         });
     });
+
+    const recordBtn = document.getElementById('record-btn');
+    const uploadBtn = document.getElementById('upload-btn');
 
     recordBtn.addEventListener('click', function() {
         console.log('Record button clicked');
@@ -138,4 +65,66 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Upload button clicked');
         // Implement upload functionality here
     });
-});
+}
+
+function setupSettingsEventListeners() {
+    const apiKeyForm = document.getElementById('api-key-form');
+    const deleteDataBtn = document.getElementById('delete-data');
+
+    apiKeyForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const apiKey = document.getElementById('api-key').value;
+        saveApiKey(apiKey);
+    });
+
+    deleteDataBtn.addEventListener('click', function() {
+        if (confirm('Are you sure you want to delete all your data? This action cannot be undone.')) {
+            deleteAllData();
+        }
+    });
+}
+
+function saveApiKey(apiKey) {
+    fetch('/settings/save-api-key', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `api_key=${encodeURIComponent(apiKey)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('API key saved successfully');
+        } else {
+            alert('Failed to save API key');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while saving the API key');
+    });
+}
+
+function deleteAllData() {
+    fetch('/settings/delete-data', {
+        method: 'POST'
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('All data has been deleted');
+            // Redirect to home page or refresh the app
+            navigateTo('home');
+        } else {
+            alert('Failed to delete data');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while deleting data');
+    });
+}
+
+// Initialize the app when the DOM is loaded
+document.addEventListener('DOMContentLoaded', initApp);

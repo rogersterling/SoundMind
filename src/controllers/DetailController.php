@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/Controller.php';
+namespace App\Controllers;
 
-class DetailController extends Controller
+class DetailController
 {
     public function show($id)
     {

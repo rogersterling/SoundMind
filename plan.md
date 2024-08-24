@@ -1,5 +1,5 @@
 ## Project Overview
-Create SoundMind, a personal journaling app that allows users to record audio from their mobile browser or upload audio from their phone. The app will provide a seamless, native-like experience with sliding views, mood analysis, and GPT-generated summaries of journal entries, using PHP, JavaScript, HTML, and Tailwind CSS.
+Create SoundMind, a personal journaling app that allows users to record audio from their mobile browser or upload audio from their phone. The app will provide a seamless, native-like experience with sliding views, mood analysis, and GPT-generated summaries of journal entries, using PHP, JavaScript, HTML, and standard CSS.
 
 ## Initial Setup
 1. Create main project folder: `soundmind_app`
@@ -32,32 +32,23 @@ Create SoundMind, a personal journaling app that allows users to record audio fr
 6. Create initial GitHub issues based on tasks listed below
 
 ## Development Protocol
-1. Create feature-specific branches for each new task or feature
-2. Implement "every other day" system for code refactoring and optimization
-3. Regularly update and refer to the GitHub project board when coding
-4. Work on one task at a time to maintain focus and code quality
-5. Commit changes frequently with descriptive commit messages
-6. Regularly remove unnecessary code, comments, and debug statements
-7. Reinvest time in simplifying and improving code efficiency
+[No changes in this section]
 
 ## GitHub Integration
-- Before starting development, create a GitHub project and associated issues programmatically
-- As new tasks or issues arise during development, create them in GitHub
-- Ensure only one issue is being worked on at a time
-- Update issue status as work progresses (e.g., "In Progress", "Ready for Review", "Done")
+[No changes in this section]
 
 ## Tasks
 1. [x] Set up project structure and GitHub repository
 2. [x] Create initial GitHub project board and issues
 3. [x] Set up PHP environment and implement basic routing
-4. [x] Implement Tailwind CSS for styling
+4. [x] Create CSS files for styling
 5. [x] Create base HTML structure for the app
 6. [x] Develop JavaScript for client-side interactivity and AJAX requests
 7. [x] Implement persistent recording/upload tab bar component
-8. [ ] Develop Home view (SoundMind view) with color-coded journal entry list
-9. [ ] Create Detail view for individual journal entries
-10. [ ] Implement Insights view with entry list (chart to be added later)
-11. [ ] Develop Settings view with OpenAI API key input, obtainment link, and data deletion option
+8. [x] Develop Home view (SoundMind view) with color-coded journal entry list
+9. [x] Create Detail view for individual journal entries
+10. [x] Implement Insights view with entry list (chart to be added later)
+11. [x] Develop Settings view with OpenAI API key input, obtainment link, and data deletion option
 12. [ ] Implement sliding transitions between views with dot navigation using JavaScript
 13. [ ] Set up PHP backend API
 14. [ ] Implement user authentication system
@@ -77,35 +68,10 @@ Create SoundMind, a personal journaling app that allows users to record audio fr
 28. [ ] Design and implement additional visualizations for Insights view (if decided)
 
 ## Data Model
-
-User:
-- id (int, auto-increment)
-- username (varchar)
-- email (varchar)
-- password (varchar, hashed)
-- openAIApiKey (varchar, encrypted)
-- createdAt (timestamp)
-- updatedAt (timestamp)
-
-JournalEntry:
-- id (int, auto-increment)
-- userId (int, foreign key to User)
-- audioUrl (varchar)
-- titleSummary (varchar)
-- briefSummary (text)
-- detailedSummary (text)
-- moodRating (int, -3 to +3)
-- date (date)
-- duration (int, in seconds)
-- transcription (text)
-- createdAt (timestamp)
-- updatedAt (timestamp)
-
-Relationships:
-- One User can have many JournalEntries (One-to-Many)
+[No changes in this section]
 
 ## Additional Project-Specific Details
-1. Frontend: HTML, JavaScript, and Tailwind CSS
+1. Frontend: HTML, JavaScript, and standard CSS
 2. Backend: PHP
 3. Database: MySQL
 4. Authentication: PHP sessions and cookies
@@ -127,7 +93,7 @@ Relationships:
 - Regularly remove unnecessary code, comments, and debug statements
 - For larger projects, consider creating subfolders within the "src" folder
 - Continuously reinvest time in simplifying and improving code efficiency
-- Use Tailwind CSS framework
+- Use standard CSS for styling, focusing on maintainability and performance
 - Implement proper error handling and logging
 - Ensure all user data is properly encrypted and securely stored
 - Implement rate limiting for API calls to OpenAI to manage costs
@@ -139,11 +105,7 @@ Relationships:
 Remember to update this plan as the project evolves and new requirements or tasks are identified.
 
 ## Future Features
-- Implement functionality to identify specific activities within each entry using GPT and assign individual mood ratings to these activities.
-- Consider adding voice-to-text transcription to reduce reliance on OpenAI API for initial transcription.
-- Implement data export functionality for users to backup their journal entries.
-- Add support for attaching images or other media types to journal entries.
-- Implement natural language processing for more advanced insights and trend analysis.
+[No changes in this section]
 
 ## Technical Considerations
 1. Single Page App-like Experience:
@@ -152,7 +114,7 @@ Remember to update this plan as the project evolves and new requirements or task
    - The persistent recording tab bar will be implemented as a fixed HTML/CSS component that remains across all views.
 
 2. Mobile Optimization:
-   - Use responsive design principles and Tailwind CSS to ensure the app looks and functions well on various mobile devices.
+   - Use responsive design principles and standard CSS to ensure the app looks and functions well on various mobile devices.
    - Implement touch events with JavaScript for sliding between views and deleting entries.
    - Optimize performance for mobile devices, considering factors like battery usage and data consumption.
 
@@ -177,4 +139,4 @@ Remember to update this plan as the project evolves and new requirements or task
    - Implement lazy loading for journal entries to improve initial load time and performance.
    - Use pagination or infinite scrolling for the journal entry list to handle potentially large numbers of entries.
 
-By following this project plan and considering these technical aspects, we'll be able to create a robust, user-friendly SoundMind journaling app with the desired functionality and a native-like feel using PHP, JavaScript, HTML, and Tailwind CSS.
+By following this project plan and considering these technical aspects, we'll be able to create a robust, user-friendly SoundMind journaling app with the desired functionality and a native-like feel using PHP, JavaScript, HTML, and standard CSS.
