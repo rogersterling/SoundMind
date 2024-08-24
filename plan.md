@@ -50,10 +50,10 @@ Create SoundMind, a personal journaling app that allows users to record audio fr
 1. [x] Set up project structure and GitHub repository
 2. [x] Create initial GitHub project board and issues
 3. [x] Set up PHP environment and implement basic routing
-4. [ ] Implement Tailwind CSS for styling
-5. [ ] Create base HTML structure for the app
-6. [ ] Develop JavaScript for client-side interactivity and AJAX requests
-7. [ ] Implement persistent recording/upload tab bar component
+4. [x] Implement Tailwind CSS for styling
+5. [x] Create base HTML structure for the app
+6. [x] Develop JavaScript for client-side interactivity and AJAX requests
+7. [x] Implement persistent recording/upload tab bar component
 8. [ ] Develop Home view (SoundMind view) with color-coded journal entry list
 9. [ ] Create Detail view for individual journal entries
 10. [ ] Implement Insights view with entry list (chart to be added later)
