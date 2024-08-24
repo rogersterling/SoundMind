@@ -118,35 +118,14 @@ document.addEventListener('DOMContentLoaded', initApp);
 window.navigateTo = navigateTo;
 
 document.addEventListener('DOMContentLoaded', function() {
-    const views = ['home', 'insights', 'settings'];
-    const navDots = document.querySelectorAll('#nav-dots span');
+    const navDots = document.querySelectorAll('.nav-dot');
     const recordBtn = document.getElementById('record-btn');
     const uploadBtn = document.getElementById('upload-btn');
 
-    function showView(viewName) {
-        views.forEach(view => {
-            const viewElement = document.getElementById(`${view}-view`);
-            if (view === viewName) {
-                viewElement.classList.remove('hidden');
-            } else {
-                viewElement.classList.add('hidden');
-            }
-        });
-
-        navDots.forEach(dot => {
-            if (dot.dataset.view === viewName) {
-                dot.classList.add('bg-gray-800');
-                dot.classList.remove('bg-gray-300');
-            } else {
-                dot.classList.remove('bg-gray-800');
-                dot.classList.add('bg-gray-300');
-            }
-        });
-    }
-
     navDots.forEach(dot => {
         dot.addEventListener('click', function() {
-            showView(this.dataset.view);
+            console.log(`Navigating to ${this.dataset.view} view`);
+            // Implement view navigation here
         });
     });
 
@@ -159,7 +138,4 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Upload button clicked');
         // Implement upload functionality here
     });
-
-    // Show home view by default
-    showView('home');
 });
