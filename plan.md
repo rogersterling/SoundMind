@@ -50,7 +50,7 @@ Create SoundMind, a personal journaling app that allows users to record audio fr
 10. [x] Implement Insights view with entry list (chart to be added later)
 11. [x] Develop Settings view with OpenAI API key input, obtainment link, and data deletion option
 12. [ ] Implement sliding transitions between views with dot navigation using JavaScript
-13. [ ] Set up PHP backend API
+13. [x] Set up PHP backend API
 14. [ ] Implement user authentication system
 15. [ ] Set up database (MySQL)
 16. [ ] Implement audio recording and upload functionality using JavaScript
