@@ -1,0 +1,4 @@
+echo "vendor/
+.env
+*.log
+.DS_Store" > .gitignore

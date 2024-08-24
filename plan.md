@@ -47,34 +47,34 @@ Create SoundMind, a personal journaling app that allows users to record audio fr
 - Update issue status as work progresses (e.g., "In Progress", "Ready for Review", "Done")
 
 ## Tasks
-1. Set up project structure and GitHub repository
-2. Create initial GitHub project board and issues
-3. Set up PHP environment and implement basic routing
-4. Implement Tailwind CSS for styling
-5. Create base HTML structure for the app
-6. Develop JavaScript for client-side interactivity and AJAX requests
-7. Implement persistent recording/upload tab bar component
-8. Develop Home view (SoundMind view) with color-coded journal entry list
-9. Create Detail view for individual journal entries
-10. Implement Insights view with entry list (chart to be added later)
-11. Develop Settings view with OpenAI API key input, obtainment link, and data deletion option
-12. Implement sliding transitions between views with dot navigation using JavaScript
-13. Set up PHP backend API
-14. Implement user authentication system
-15. Set up database (MySQL)
-16. Implement audio recording and upload functionality using JavaScript
-17. Integrate OpenAI GPT-4 for generating summaries and mood ratings
-18. Implement data model and database schema
-19. Create API endpoints for CRUD operations on journal entries
-20. Implement error handling and input validation
-21. Optimize app performance and responsiveness
-22. Implement user data privacy and security measures
-23. Write unit and integration tests
-24. Perform cross-browser and cross-device testing
-25. Create README.md file with project information and setup instructions
-26. Prepare for deployment
-27. Implement help page for obtaining and using OpenAI API key
-28. Design and implement additional visualizations for Insights view (if decided)
+1. [x] Set up project structure and GitHub repository
+2. [x] Create initial GitHub project board and issues
+3. [x] Set up PHP environment and implement basic routing
+4. [ ] Implement Tailwind CSS for styling
+5. [ ] Create base HTML structure for the app
+6. [ ] Develop JavaScript for client-side interactivity and AJAX requests
+7. [ ] Implement persistent recording/upload tab bar component
+8. [ ] Develop Home view (SoundMind view) with color-coded journal entry list
+9. [ ] Create Detail view for individual journal entries
+10. [ ] Implement Insights view with entry list (chart to be added later)
+11. [ ] Develop Settings view with OpenAI API key input, obtainment link, and data deletion option
+12. [ ] Implement sliding transitions between views with dot navigation using JavaScript
+13. [ ] Set up PHP backend API
+14. [ ] Implement user authentication system
+15. [ ] Set up database (MySQL)
+16. [ ] Implement audio recording and upload functionality using JavaScript
+17. [ ] Integrate OpenAI GPT-4 for generating summaries and mood ratings
+18. [ ] Implement data model and database schema
+19. [ ] Create API endpoints for CRUD operations on journal entries
+20. [ ] Implement error handling and input validation
+21. [ ] Optimize app performance and responsiveness
+22. [ ] Implement user data privacy and security measures
+23. [ ] Write unit and integration tests
+24. [ ] Perform cross-browser and cross-device testing
+25. [ ] Create README.md file with project information and setup instructions
+26. [ ] Prepare for deployment
+27. [ ] Implement help page for obtaining and using OpenAI API key
+28. [ ] Design and implement additional visualizations for Insights view (if decided)
 
 ## Data Model
 
